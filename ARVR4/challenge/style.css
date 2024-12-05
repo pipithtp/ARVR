@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+.scene {
+    width: 200px;
+    height: 200px;
+    perspective: 800px;
+}
+
+.cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate 5s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.front  { transform: translateZ(100px); background-color: red; }
+.back   { transform: rotateY(180deg) translateZ(100px); background-color: blue; }
+.right  { transform: rotateY(90deg) translateZ(100px); background-color: green; }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-color: yellow; }
+.top    { transform: rotateX(90deg) translateZ(100px); background-color: orange; }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background-color: purple; }
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0) rotateY(0);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(-360deg); /* Rotasi ke kiri */
+    }
+}
